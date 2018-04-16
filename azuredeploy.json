@@ -62,6 +62,13 @@
             "properties": {
                 "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
                 "siteConfig": {
+                    "handlerMappings": [
+                        {
+                          "arguments": "D:\\home\\Python27\\wfastcgi.py",
+                          "extension": "fastCgi",
+                          "scriptProcessor": "D:\\home\\Python27\\python.exe"
+                        }
+                    ],
                     "appSettings": [
                         {
                             "name": "AzureWebJobsDashboard",
