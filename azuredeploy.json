@@ -106,7 +106,7 @@
                   "apiVersion": "2016-08-01",
                   "properties": {},
                   "dependsOn": [
-                    "[resourceId('Microsoft.Web/sites', variables('funcName'))]"
+                    "[resourceId('Microsoft.Web/sites', variables('functionAppName'))]"
                   ]
                 },
                 {
