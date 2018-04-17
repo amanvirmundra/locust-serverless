@@ -123,10 +123,6 @@
             "[resourceId('Microsoft.Web/sites/siteextensions', variables('functionAppName'), variables('pythonExtension'))]"
           ]
         }
-      ],
-      "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('hostingPlanName'))]"
       ]
     }
   ]

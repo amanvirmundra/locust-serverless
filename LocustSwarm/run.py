@@ -1,24 +1,14 @@
 import sys, os.path
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), 'myvenv/Lib/site-packages')))
 import json
 from argparse import Namespace
-from locust import HttpLocust, TaskSet, task, runners
+from locust import runners
+import locustfile
 
 # read request data
 postreqdata = json.loads(open(os.environ['req']).read())
 baseurl = postreqdata['url']
 hatch_rate = postreqdata['hatch_rate']
 num_requests = postreqdata['num_requests']
-
-# define locust tasks
-class Task(TaskSet):
-    @task()
-    def get_home_page(self):
-        response = self.client.get("/")
-        print("Response status code:", response.status_code)
-
-class WebsiteUser(HttpLocust):
-    task_set = Task
 
 # set options and trigger tests
 options = Namespace()
@@ -28,7 +18,7 @@ options.hatch_rate = hatch_rate
 options.num_requests = num_requests
 options.no_reset_stats = True
 
-runners.locust_runner = runners.LocalLocustRunner([WebsiteUser], options)
+runners.locust_runner = runners.LocalLocustRunner([locustfile.WebsiteUser], options)
 runners.locust_runner.start_hatching(wait=True)
 runners.locust_runner.greenlet.join()
 
