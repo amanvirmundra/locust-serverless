@@ -9,11 +9,12 @@ postreqdata = json.loads(open(os.environ['req']).read())
 baseurl = postreqdata['url']
 hatch_rate = postreqdata['hatch_rate']
 num_requests = postreqdata['num_requests']
+num_clients = postreqdata['num_clients']
 
 # set options and trigger tests
 options = Namespace()
 options.host = baseurl
-options.num_clients = 5
+options.num_clients = num_clients
 options.hatch_rate = hatch_rate
 options.num_requests = num_requests
 options.no_reset_stats = True
