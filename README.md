@@ -12,7 +12,8 @@ POST https://<your_app_name>.azurewebsites.net/api/LocustSwarm
 {
     "url": "http://www.example.com",
     "hatch_rate": 1,
-    "num_requests": 10
+    "num_requests": 10,
+    "num_clients": 5
 }
 ```
 #### Response
